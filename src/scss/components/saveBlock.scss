@@ -1,0 +1,132 @@
+@keyframes spin-star {
+	0% {
+		transform: rotate3d(0);
+	}
+	50% {
+		transform: rotate3d(0, 1, 0, 180deg);
+	}
+	100% {
+		transform: rotate3d(0);
+	}
+}
+
+@keyframes gradient-scroll {
+	0% {
+		background-color: #F00;
+	}
+	20% {
+		background-color: #FF0;
+	}
+	40% {
+		background-color: #0F0;
+	}
+	60% {
+		background-color: #0FF;
+	}
+	80% {
+		background-color: #F0F;
+	}
+	100% {
+		background-color: #F00;
+	}
+}
+
+.save-block {
+	font-family: 'MarioFont';
+	font-size: 6rem;
+	color: white;
+	text-decoration: none;
+	position: relative;
+	width: 8rem;
+	aspect-ratio: 1;
+	display: block;
+
+	&:nth-of-type(2) {
+		.save-block__star {
+			animation-delay: -2s;
+		}
+		.save-block__gradient {
+			animation-delay: -2s;
+		}
+	}
+
+	&:nth-of-type(3) {
+		.save-block__star {
+			animation-delay: -1s;
+		}
+		.save-block__gradient {
+			animation-delay: -1s;
+		}
+	}
+
+	&__star {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		animation: 3s linear infinite spin-star;
+	}
+
+	&__gradient {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0.5;
+		background-color: #F00;
+		animation: 3s linear infinite gradient-scroll;
+	}
+
+	&__border {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: 0.3125rem solid #464740;
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+	}
+
+	&__character {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__label {
+		font-size: 1rem;
+		font-family: 'SuperMarioScript';
+		position: absolute;
+		top: -1.5rem;
+		left: 0;
+		width: 100%;
+		color: transparent;
+
+		&::before {
+			content: attr(data-text);
+			color: black;
+			-webkit-text-stroke: 0.15rem #000;
+			text-stroke: 0.15rem #000;
+			position: absolute;
+			left: 0;
+			width: 100%;
+			text-align: center;
+		}
+
+		&::after {
+			content: attr(data-text);
+			color: white;
+			position: absolute;
+			left: 0;
+			width: 100%;
+			text-align: center;
+		}
+	}
+}

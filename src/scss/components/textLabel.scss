@@ -1,0 +1,19 @@
+.text-label {
+	font-size: 1rem;
+	background-color: #D9DCD9;
+	max-width: 100%;
+	padding: 0.25rem;
+	border-radius: 0.78125rem;
+	text-align: center;
+	filter: drop-shadow(0.125rem 0.125rem #8AA38A);
+	margin-bottom: 1rem;
+	letter-spacing: 0.0625rem;
+
+	@include for-size(tablet-landscape-up) {
+		margin: 0 auto 2rem;
+		font-size: 2rem;
+		max-width: 38rem;
+		border-radius: 1.4375rem;
+		letter-spacing: 0.125rem;
+	}
+}

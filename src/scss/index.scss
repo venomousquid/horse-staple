@@ -1,0 +1,36 @@
+@import './fonts.scss';
+@import './breakpoints.scss';
+
+// components
+@import './components/sectionContainer.scss';
+@import './components/textLabel.scss';
+@import './components/textField.scss';
+@import './components/cardInset.scss';
+@import './components/carousel.scss';
+@import './components/saveBlockContainer.scss';
+@import './components/saveBlock.scss';
+
+
+body {
+	font-family: 'SuperMarioScript';
+	font-size: 16px;
+	background-color: #E1E1E1;
+	background-image: url('./background.svg');
+	background-size: 1rem;
+	margin: 0;
+	padding: 0;
+}
+
+#app {
+	height: 100vh;
+}
+
+.text-muted {
+	text-align: center;
+	opacity: 0.5;
+	letter-spacing: 0.0625rem;
+}
+
+.text-field {
+	background-image: url('./bgpattern.svg');
+}

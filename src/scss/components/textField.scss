@@ -1,0 +1,64 @@
+@keyframes slide-small {
+	from { background-position: 0 0; }
+	to { background-position: -5rem 2.5rem; }
+}
+
+@keyframes slide-large {
+	from { background-position: 0 0; }
+	to { background-position: -10rem 5rem; }
+}
+
+.text-field {
+	background-color: #10174B;
+	border-radius: 1.75rem;
+	padding: 1.5rem 2rem;
+	box-sizing: border-box;
+	position: relative;
+	background-size: 5rem;
+	animation: 3s linear infinite running;
+	animation-name: slide-small;
+	margin-bottom: 1rem;
+	letter-spacing: 0.0625rem;
+
+	@include for-size(tablet-landscape-up) {
+		padding: 2.375rem 3.375rem;
+		max-width: 60rem;
+		margin: 0 auto 4rem;
+		background-size: 10rem;
+		animation-name: slide-large;
+		letter-spacing: 0.125rem;
+	}
+
+	&__text {
+		font-size: 1rem;
+		line-height: 1.5;
+		color: #DCC8DC;
+		
+		@include for-size(tablet-landscape-up) {
+			font-size: 2rem;
+			line-height: 1.25;
+		}
+	}
+
+	&__border-thick {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		box-sizing: border-box;
+		border: 0.5625rem solid #7C7A7C;
+		border-radius: 1.75rem;
+	}
+
+	&__border-thin {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: calc(100% - 0.25rem);
+		width: calc(100% - 0.25rem);
+		box-sizing: border-box;
+		border: 0.375rem solid #CACBCA;
+		border-radius: 1.625rem;
+	}
+}
