@@ -9,7 +9,16 @@
 @import './components/carousel.scss';
 @import './components/saveBlockContainer.scss';
 @import './components/saveBlock.scss';
+@import './components/hero.scss';
 
+html {
+	scroll-behavior: smooth;
+	scroll-padding: 1rem;
+
+	@include for-size(tablet-landscape-up) {
+		scroll-padding: 2rem;
+	}
+}
 
 body {
 	font-family: 'SuperMarioScript';
@@ -17,8 +26,13 @@ body {
 	background-color: #E1E1E1;
 	background-image: url('./background.svg');
 	background-size: 1rem;
+	color: #1E1414;
 	margin: 0;
 	padding: 0;
+
+	@include for-size(tablet-landscape-up) {
+		background-size: 2rem;
+	}
 }
 
 #app {

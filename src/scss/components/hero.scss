@@ -1,0 +1,248 @@
+$global-spinner-size: 2rem;
+
+$title-font-size: 5.125rem;
+$title-font-stroke: 1.05rem;
+$title-spin-count: 5;
+$title-spin-speed: 2000ms;
+$title-character-delay: 250ms;
+$title-gradient-speed: 10000ms;
+
+$subtitle-spin-speed: 8000ms;
+$subtitle-rotation-segments: 40;
+
+$coin-spin-speed: 2400ms;
+
+$desktop-up-scale: 1.33;
+$big-desktop-up-scale: 2;
+
+// dont touch this
+$spinner-font-size: $global-spinner-size;
+$spinner-gap-size: $spinner-font-size * 0.25;
+$spinner-coin-size: $spinner-font-size * 6;
+$spinner-container-size: (($spinner-font-size + $spinner-gap-size) * 2) + $spinner-coin-size;
+$spinner-container-half: $spinner-container-size * 0.5;
+
+// dont touch this
+$subtitle-character-angle: calc(360deg / $subtitle-rotation-segments);
+$subtitle-character-delay: calc($subtitle-spin-speed / $subtitle-rotation-segments);
+$subtitle-character-fade-in-speed: $subtitle-spin-speed * 0.125;
+$subtitle-start-delay: 3250ms;
+
+.hero {
+	position: relative;
+	width: 100%;
+	height: calc(100% - 3rem);
+
+	@include for-size(tablet-landscape-up) {
+		height: calc(100% - 8rem);
+	}
+
+	&__title {
+		position: relative;
+		top: 20%;
+		font-family: 'MarioFont';
+		font-size: $title-font-size;
+		display: flex;
+		justify-content: center;
+		letter-spacing: -0.5rem;
+
+		@include for-size(desktop-up) {			
+			font-size: $title-font-size * $desktop-up-scale;
+		}
+		@include for-size(big-desktop-up) {
+			font-size: $title-font-size * $big-desktop-up-scale;
+		}
+
+		div {
+			position: relative;
+			animation: $title-spin-speed spin-letter forwards;
+			animation-timing-function: cubic-bezier(0, 1, 1, 1);
+			visibility: hidden;
+
+			@for $i from 1 through 10 {
+				&:nth-of-type(#{$i}) {
+					animation-delay: #{250ms + ($i - 1) * $title-character-delay};
+
+					&::after {
+						animation-delay: #{250ms + ($i - 1) * $title-character-delay};
+					}
+				}
+			}
+
+			&::before {
+				content: attr(data-text);
+				color: black;
+				-webkit-text-stroke: $title-font-stroke #1E1414;
+				text-stroke: $title-font-stroke #1E1414;
+				position: absolute;
+				left: 0;
+				width: 100%;
+
+				@include for-size(desktop-up) {			
+					-webkit-text-stroke: ($title-font-stroke * $desktop-up-scale) #1E1414;
+					text-stroke: ($title-font-stroke * $desktop-up-scale) #1E1414;
+				}
+				@include for-size(big-desktop-up) {
+					-webkit-text-stroke: ($title-font-stroke * $big-desktop-up-scale) #1E1414;
+					text-stroke: ($title-font-stroke * $big-desktop-up-scale) #1E1414;
+				}		
+			}
+	
+			&::after {
+				content: attr(data-text);
+				color: yellow;
+				position: absolute;
+				left: 0;
+				width: 100%;
+				animation: $title-gradient-speed gradient-letter infinite;
+			}	
+		}
+	}
+
+	&__spinner {
+		// background-color: red;
+		position: absolute;
+		top: 40%;;
+		aspect-ratio: 1;
+		left: calc(50% - $spinner-container-half);
+		width: $spinner-container-size;
+
+		@include for-size(desktop-up) {			
+			left: calc(50% - ($spinner-container-half * $desktop-up-scale));
+			width: $spinner-container-size * $desktop-up-scale;
+		}
+		@include for-size(big-desktop-up) {
+			left: calc(50% - ($spinner-container-half * $big-desktop-up-scale));
+			width: $spinner-container-size * $big-desktop-up-scale;
+		}
+	}
+
+	&__subtitle {
+		// background-color: blue;
+		font-size: $spinner-font-size;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		animation: $subtitle-spin-speed linear infinite spin-subtitle;
+		visibility: none;
+		animation-delay: $subtitle-start-delay;
+
+		@include for-size(desktop-up) {			
+			font-size: $spinner-font-size * $desktop-up-scale;
+		}
+		@include for-size(big-desktop-up) {			
+			font-size: $spinner-font-size * $big-desktop-up-scale;
+		}
+
+		div {
+			position: absolute;
+			height: $spinner-container-half;
+			transform-origin: center bottom;
+			animation: $subtitle-character-fade-in-speed linear fade-in forwards;
+			opacity: 0;
+
+			@include for-size(desktop-up) {			
+				height: $spinner-container-half * $desktop-up-scale;
+			}
+			@include for-size(big-desktop-up) {			
+				height: $spinner-container-half * $big-desktop-up-scale;
+			}	
+
+			@for $i from 1 through $subtitle-rotation-segments {
+				&:nth-of-type(#{$i}) {
+					animation-delay: #{$subtitle-start-delay + ($i - 1) * $subtitle-character-delay};
+					transform: rotate(#{($i - 1) * $subtitle-character-angle});
+				}
+			}
+		}
+	}
+
+	&__coin {
+		// background-color: green;
+		position: absolute;
+		left: $spinner-gap-size + $spinner-font-size;
+		top: $spinner-gap-size + $spinner-font-size;
+		width: $spinner-coin-size;
+		aspect-ratio: 1;
+		animation: $coin-spin-speed linear infinite spin-coin;
+		filter: brightness(1);
+
+		@include for-size(desktop-up) {			
+			left: ($spinner-gap-size + $spinner-font-size) * $desktop-up-scale;
+			top: ($spinner-gap-size + $spinner-font-size) * $desktop-up-scale;
+			width: $spinner-coin-size * $desktop-up-scale;
+		}
+		@include for-size(big-desktop-up) {			
+			left: ($spinner-gap-size + $spinner-font-size) * $big-desktop-up-scale;
+			top: ($spinner-gap-size + $spinner-font-size) * $big-desktop-up-scale;
+			width: $spinner-coin-size * $big-desktop-up-scale;
+		}
+	}
+}
+
+@keyframes spin-letter {
+	from {
+		transform: rotate3d(0, 1, 0, calc(-360deg * $title-spin-count));
+		visibility: visible;
+	}
+	to {
+		transform: rotate3d(0, 1, 0, 0);
+		visibility: visible;
+	}
+}
+
+@keyframes gradient-letter {
+	0% {
+		color: yellow;
+	}
+	33% {
+		color: cyan;
+	}
+	66% {
+		color: magenta;
+	}
+	100% {
+		color: yellow;
+	}
+}
+
+@keyframes spin-coin {
+	0% {
+		transform: rotate3d(0);
+		filter: brightness(1);
+	}
+	25% {
+		filter: brightness(0.4);
+	}
+	50% {
+		filter: brightness(1);
+	}
+	75% {
+		filter: brightness(0.4);
+	}
+	100% {
+		transform: rotate3d(0, 1, 0, 360deg);
+		filter: brightness(1);
+	}
+}
+
+@keyframes spin-subtitle {
+	from {
+		transform: rotate(0);
+		visibility: visible;
+	}
+	to {
+		transform: rotate(-360deg);
+		visibility: visible;
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

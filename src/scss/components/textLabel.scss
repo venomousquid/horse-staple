@@ -5,9 +5,13 @@
 	padding: 0.25rem;
 	border-radius: 0.78125rem;
 	text-align: center;
-	filter: drop-shadow(0.125rem 0.125rem #8AA38A);
+	// filter: drop-shadow(0.125rem 0.125rem #8AA38A);
+	box-shadow: inset -0.125rem -0.125rem 0.125rem 0 #8BA48B, inset 0.125rem 0.125rem 0.125rem 0 #E2E3E2;
 	margin-bottom: 1rem;
 	letter-spacing: 0.0625rem;
+	display: block;
+	text-decoration: none;
+	color: #1E1414;
 
 	@include for-size(tablet-landscape-up) {
 		margin: 0 auto 2rem;

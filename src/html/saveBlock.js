@@ -1,4 +1,4 @@
-import saveStar from '../img/save-star.png';
+import saveStar from '../img/save-star.webp';
 
 export const saveBlock = (url, target = '_self', letter = 'S', label) => `
 	<a class="save-block" href="${url}" target="${target}">
@@ -8,4 +8,4 @@ export const saveBlock = (url, target = '_self', letter = 'S', label) => `
 		<div class="save-block__character">${letter.charAt(0).toUpperCase()}</div>
 		${ label ? `<div class="save-block__label" data-text="${label}">${label}</div>` : '' }
 	</a>
-`
+`;

@@ -3,23 +3,25 @@ import { textLabel } from './html/textLabel';
 import { textField } from './html/textField';
 import { carousel } from './html/carousel';
 import { saveBlock } from './html/saveBlock';
+import { hero } from './html/hero';
 import { carouselFN } from './js/carousel';
 
-import img0 from './img/a1.png';
-import img1 from './img/a4.png';
-import img2 from './img/b3.png';
-import img3 from './img/c2.png';
-import img4 from './img/c3.png';
-import img5 from './img/c4.png';
-import img6 from './img/d3.png';
-import img7 from './img/e1.png';
-import img8 from './img/e3.png';
-import img9 from './img/f1.png';
+import img0 from './img/a3.webp';
+import img1 from './img/a4.webp';
+import img2 from './img/b3.webp';
+import img3 from './img/c2.webp';
+import img4 from './img/c3.webp';
+import img5 from './img/c4.webp';
+import img6 from './img/d3.webp';
+import img7 from './img/e1.webp';
+import img8 from './img/e3.webp';
+import img9 from './img/f1.webp';
 
-const aboutText = "PM1000 is a progress management tool for Paper Mario: The Thousand Year Door. Keep track of multiple resources found in game to efficiently complete your collection of star pieces, shine sprites, badges, recipes and tattle logs!";
+const aboutText = "PM1000 is a progress management tool for Paper Mario: The Thousand-Year Door. Keep track of multiple resources found in game to efficiently complete your collection of star pieces, shine sprites, badges, recipes and tattle logs!";
 const imgArray = [img0, img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
 document.querySelector('#app').innerHTML = `
+	${hero()}
 	<div class="section-container">
 		<div class="card-inset">		
 			${textLabel('About', 'about')}
