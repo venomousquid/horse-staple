@@ -1,4 +1,6 @@
 import logo from '../img/logo.webp';
+import curtainFront from '../img/curtain-front.svg';
+import curtainLayer from '../img/curtain-layer.svg';
 
 const title = 'PM1000';
 const subTitle = 'Thousand-Year Door Progress Manager';
@@ -27,7 +29,15 @@ const subTitleNode = (str) => {
 
 export const hero = () => `
 	<div class="hero">
-		<div></div>
+		<div class="hero__curtain-container">
+			<img src="${curtainLayer}" class="hero__curtain-left hero__curtain-left--3rd"/>
+			<img src="${curtainLayer}" class="hero__curtain-left hero__curtain-left--2nd"/>
+			<img src="${curtainLayer}" class="hero__curtain-left hero__curtain-left--1st"/>
+			<img src="${curtainFront}" class="hero__curtain-middle"/>
+			<img src="${curtainLayer}" class="hero__curtain-right hero__curtain-right--1st"/>
+			<img src="${curtainLayer}" class="hero__curtain-right hero__curtain-right--2nd"/>
+			<img src="${curtainLayer}" class="hero__curtain-right hero__curtain-right--3rd"/>
+		</div>
 		<div class="hero__title">
 			${titleNode(title)}
 		</div>

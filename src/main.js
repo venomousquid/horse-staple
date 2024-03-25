@@ -4,7 +4,9 @@ import { textField } from './html/textField';
 import { carousel } from './html/carousel';
 import { saveBlock } from './html/saveBlock';
 import { hero } from './html/hero';
+import { modal } from './html/modal';
 import { carouselFN } from './js/carousel';
+import { modalFN } from './js/modal';
 
 import img0 from './img/a3.webp';
 import img1 from './img/a4.webp';
@@ -28,13 +30,15 @@ document.querySelector('#app').innerHTML = `
 			${textField(aboutText)}
 			${textLabel('Screenshots', 'screenshots')}
 			${carousel(imgArray)}
-			${textLabel('Downloads', 'downloads')}
+			${textLabel('Download', 'download')}
 			<div class="save-block-container">
 				${saveBlock('https://www.google.com/', '_blank', 'D', 'Windows 10/11')}
 			</div>
+			${modal()}
 			<div class="text-muted">Created by Venomousquid (2024)</div>
 		</div>
 	</div>
-`
+`;
 
-carouselFN(imgArray)
+carouselFN(imgArray);
+modalFN();

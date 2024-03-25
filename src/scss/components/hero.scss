@@ -37,6 +37,121 @@ $subtitle-start-delay: 3250ms;
 		height: calc(100% - 8rem);
 	}
 
+	&__curtain-container {
+		position: absolute;
+		overflow: hidden;
+		width: 100%;
+		height: 10%;
+
+		@include for-size(tablet-landscape-up) {
+			height: 20%;
+		}
+	}
+
+	&__curtain-middle {
+		position: absolute;
+		z-index: 1030;
+		height: 100%;
+		top: -15%;
+		width: 22%;
+		left: calc(39%);
+
+		@include for-size(tablet-landscape-up) {
+			height: 100%;
+			top: -15%;
+			width: 15%;
+			left: calc(42.5%);
+		}	
+	}
+
+	&__curtain-left {
+		position: absolute;
+		-webkit-transform: scaleX(-1);
+		transform: scaleX(-1);
+		height: 100%;
+		width: 22%;
+
+		@include for-size(tablet-landscape-up) {
+			width: 16%;
+		}
+
+		&--1st {
+			z-index: 1020;
+			left: 19%;
+			top: -10%;
+
+			@include for-size(tablet-landscape-up) {
+				left: 28%;
+				top: -10%;
+			}
+		}
+
+		&--2nd {
+			z-index: 1010;
+			left: -1%;
+			top: -5%;
+
+			@include for-size(tablet-landscape-up) {
+				left: 13.5%;
+				top: -5%;
+			}
+		}
+
+		&--3rd {
+			z-index: 1000;
+			visibility: hidden;
+
+			@include for-size(tablet-landscape-up) {
+				visibility: visible;
+				left: -1%;
+				top: 0;
+			}
+		}
+	}
+
+	&__curtain-right {
+		position: absolute;
+		height: 100%;
+		width: 22%;
+
+		@include for-size(tablet-landscape-up) {
+			width: 16%;
+		}
+
+		&--1st {
+			z-index: 1020;
+			right: 19%;
+			top: -10%;
+
+			@include for-size(tablet-landscape-up) {
+				right: 28%;
+				top: -10%;
+			}
+		}
+
+		&--2nd {
+			z-index: 1010;
+			right: -1%;
+			top: -5%;
+
+			@include for-size(tablet-landscape-up) {
+				right: 13.5%;
+				top: -5%;
+			}
+		}
+
+		&--3rd {
+			z-index: 1000;
+			visibility: hidden;
+
+			@include for-size(tablet-landscape-up) {
+				visibility: visible;
+				right: -1%;
+				top: 0;
+			}
+		}
+	}
+
 	&__title {
 		position: relative;
 		top: 20%;
@@ -72,19 +187,19 @@ $subtitle-start-delay: 3250ms;
 			&::before {
 				content: attr(data-text);
 				color: black;
-				-webkit-text-stroke: $title-font-stroke #1E1414;
-				text-stroke: $title-font-stroke #1E1414;
+				-webkit-text-stroke: $title-font-stroke #363636;
+				text-stroke: $title-font-stroke #363636;
 				position: absolute;
 				left: 0;
 				width: 100%;
 
 				@include for-size(desktop-up) {			
-					-webkit-text-stroke: ($title-font-stroke * $desktop-up-scale) #1E1414;
-					text-stroke: ($title-font-stroke * $desktop-up-scale) #1E1414;
+					-webkit-text-stroke: ($title-font-stroke * $desktop-up-scale) #363636;
+					text-stroke: ($title-font-stroke * $desktop-up-scale) #363636;
 				}
 				@include for-size(big-desktop-up) {
-					-webkit-text-stroke: ($title-font-stroke * $big-desktop-up-scale) #1E1414;
-					text-stroke: ($title-font-stroke * $big-desktop-up-scale) #1E1414;
+					-webkit-text-stroke: ($title-font-stroke * $big-desktop-up-scale) #363636;
+					text-stroke: ($title-font-stroke * $big-desktop-up-scale) #363636;
 				}		
 			}
 	
