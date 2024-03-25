@@ -1,8 +1,8 @@
 .open-modal-button {
-    cursor: pointer;
-    margin: 0 auto 1rem;
+	cursor: pointer;
+	margin: 0 auto 1rem;
 
-    @include for-size(tablet-landscape-up) {
+	@include for-size(tablet-landscape-up) {
 		max-width: 20rem;
 		margin: 0 auto 4rem;
 	}
@@ -22,9 +22,13 @@
 }
 
 dialog {
-    border: none;
-    border-radius: 1rem;
-    padding: 1rem;
-    box-sizing: border-box;
+	border: none;
+	border-radius: 1rem;
+	padding: 1rem;
+	box-sizing: border-box;
 	box-shadow: inset -0.125rem -0.125rem 0.125rem 0 #8BA48B, inset 0.125rem 0.125rem 0.125rem 0 #E2E3E2;
+
+	&::backdrop {
+		background-color: rgba(0, 0, 0, 0.5);
+	}
 }
