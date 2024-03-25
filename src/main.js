@@ -32,7 +32,7 @@ document.querySelector('#app').innerHTML = `
 			${carousel(imgArray)}
 			${textLabel('Download', 'download')}
 			<div class="save-block-container">
-				${saveBlock('https://www.google.com/', '_blank', 'D', 'Windows 10/11')}
+				${saveBlock('https://2ly.link/1xEj1', '_blank', 'D', 'Windows 10/11')}
 			</div>
 			${modal()}
 			<div class="text-muted">Created by Venomousquid (2024)</div>
